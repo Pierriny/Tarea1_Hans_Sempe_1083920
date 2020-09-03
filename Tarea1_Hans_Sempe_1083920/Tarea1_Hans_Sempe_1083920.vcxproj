@@ -147,6 +147,9 @@
     <EmbeddedResource Include="Ejercicio1Form.resx">
       <DependentUpon>Ejercicio1Form.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ejercicio2Form.resx">
+      <DependentUpon>Ejercicio2Form.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ejercicio4Form4.resx">
       <DependentUpon>Ejercicio4Form4.h</DependentUpon>
     </EmbeddedResource>

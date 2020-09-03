@@ -34,13 +34,16 @@ namespace Tarea1HansSempe1083920 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtBasoO;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Button^ button1;
 
 	private:
 		/// <summary>
@@ -55,20 +58,21 @@ namespace Tarea1HansSempe1083920 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtBasoO = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// textBox1
+			// txtBasoO
 			// 
-			this->textBox1->Location = System::Drawing::Point(144, 15);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 0;
+			this->txtBasoO->Location = System::Drawing::Point(144, 15);
+			this->txtBasoO->Name = L"txtBasoO";
+			this->txtBasoO->Size = System::Drawing::Size(100, 20);
+			this->txtBasoO->TabIndex = 0;
 			// 
 			// textBox2
 			// 
@@ -117,17 +121,27 @@ namespace Tarea1HansSempe1083920 {
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Número a comvertir";
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(62, 107);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(137, 23);
+			this->button1->TabIndex = 6;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
 			// Ejercicio4Form4
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(259, 215);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtBasoO);
 			this->Name = L"Ejercicio4Form4";
 			this->Text = L"Ejercicio4Form4";
 			this->ResumeLayout(false);

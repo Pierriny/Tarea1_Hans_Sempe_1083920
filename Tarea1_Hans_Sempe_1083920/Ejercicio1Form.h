@@ -151,17 +151,18 @@ namespace Tarea1HansSempe1083920 {
 	}
 		   int multi(int op1, int op2)
 		   {
-			   if (op2 = 1)
+			   if (op2 == 1)
 			   {
 				   return op1;
 			   }
-			   else if (op2 = 0)
+			   else if (op2 == 0)
 			   {
 				   return 0;
 			   }
-			   else
+			   else if (op2 >> 1)
 			   {
-				   return op1 = op1 + multi(op1, op2 - 1);			   
+				   return op1 = op1 + multi(op1, op2 - 1);
+
 			   }
 		   }
 };
