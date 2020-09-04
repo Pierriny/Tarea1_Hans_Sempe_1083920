@@ -177,58 +177,114 @@ namespace Tarea1HansSempe1083920 {
 
 		}
 #pragma endregion
-
-
-
-
-		void Abase10(int x, int y) {
+		 
+	    int Abase10(int x, int y, int z) {
 
 			int xd;
+			int cont;
+			int resi;
 
-			if (x == 1)
+			if (x == 10)
 			{
-
+				xd = y;
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 2) 
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(2, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 3)
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(3, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 4)
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(4, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 5)
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(5, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 6)
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(6, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 7)
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(7, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 8)
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(8, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 			else if (x == 9)
 			{
+				while (y != 0) {
 
+					resi = y % 10;
+					y = y / 10;
+					cont++;
+					xd = xd + std::pow(9, cont - 1) * resi;
+				}
+				return ANuevaBase(xd, z);
 			}
 		}
 
-        int ANuevaBase( int num, int x) {
+        int ANuevaBase(int num, int x) {
 			int first;
 
-			if (x == 1)
+			if (x == 10)
 			{
-
+				return num;
 			}
 			else if (x == 2)
 			{
@@ -263,7 +319,7 @@ namespace Tarea1HansSempe1083920 {
 				return Base9(num, 9, 1);
 			}
 	    }
-	   
+
 		int binario(int a, int b, int c) {
 			if (a==0) 
 			{
@@ -340,7 +396,6 @@ namespace Tarea1HansSempe1083920 {
 			}
 			return 0;
 		}
-
 		int Base9(int a, int b, int c) {
 			if (a == 0)
 			{
@@ -355,7 +410,15 @@ namespace Tarea1HansSempe1083920 {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		respuestaBase->Text = "" + ANuevaBase(Convert::ToInt32(txtNumC->Text), Convert::ToInt32(txtBaseD->Text));
+		try 
+		{	
+			respuestaBase->Text = "" + Abase10(Convert::ToInt32(txtBasoO->Text), Convert::ToInt32(txtNumC->Text), Convert::ToInt32(txtBaseD->Text));
+			MessageBox::Show("La conversion fue exitosa", "operación Exitosa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		catch (Exception^ e)
+		{
+			MessageBox::Show("Error en el programa" + e->Message, "Fallo en la operacion", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
 
 	}
 
