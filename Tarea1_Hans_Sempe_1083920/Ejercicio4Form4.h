@@ -240,27 +240,27 @@ namespace Tarea1HansSempe1083920 {
 			}
 			else if (x == 4)
 			{
-
+				return Base4(num, 4, 1);
 			}
 			else if (x == 5)
 			{
-
+				return Base5(num, 5, 1);
 			}
 			else if (x == 6)
 			{
-
+				return Base6(num, 6, 1);
 			}
 			else if (x == 7)
 			{
-
+				return Base7(num, 7, 1);
 			}
 			else if (x == 8)
 			{
-
+				return Base8(num, 8, 1);
 			}
 			else if (x == 9)
 			{
-
+				return Base9(num, 9, 1);
 			}
 	    }
 	   
@@ -285,28 +285,71 @@ namespace Tarea1HansSempe1083920 {
 			}
 			return 0;
 		}
-
-		int Base4(int d) {
+		int Base4(int a, int b, int c) {
+			if (a == 0)
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 4) * c) + (Base4(a / 4, 4, c * 10));
+			}
+			return 0;
+		}
+		int Base5(int a, int b, int c) {
+			if (a == 0)
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 5) * c) + (Base5(a / 5, 5, c * 10));
+			}
+			return 0;
+		}
+		int Base6(int a, int b, int c) {
+			if (a == 0)
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 6) * c) + (Base6(a / 6, 6, c * 10));
+			}
+			return 0;
+		}
+		int Base7(int a, int b, int c) {
+			if (a == 0)
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 7) * c) + (Base7(a / 7, 7, c * 10));
+			}
+			return 0;
+		}
+		int Base8(int a, int b, int c) {
+			if (a == 0)
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 8) * c) + (Base8(a / 8, 8, c * 10));
+			}
 			return 0;
 		}
 
-		int Base5(int d) {
-			return 0;
-		}
-
-		int Base6(int d) {
-			return 0;
-		}
-
-		int Base7(int d) {
-			return 0;
-		}
-
-		int Base8(int d) {
-			return 0;
-		}
-
-		int Base9(int d) {
+		int Base9(int a, int b, int c) {
+			if (a == 0)
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 9) * c) + (Base9(a / 9, 9, c * 10));
+			}
 			return 0;
 		}
 
