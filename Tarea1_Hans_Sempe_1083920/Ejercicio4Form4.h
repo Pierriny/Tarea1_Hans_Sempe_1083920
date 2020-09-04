@@ -1,4 +1,8 @@
 #pragma once
+#include<iostream>
+#include<windows.system.threading.h>
+#include<sstream>
+
 
 namespace Tarea1HansSempe1083920 {
 
@@ -8,6 +12,7 @@ namespace Tarea1HansSempe1083920 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Resumen de Ejercicio4Form4
@@ -35,15 +40,21 @@ namespace Tarea1HansSempe1083920 {
 			}
 		}
 	private: System::Windows::Forms::TextBox^ txtBasoO;
+	private: System::Windows::Forms::TextBox^ txtBaseD;
 	protected:
 
 	protected:
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
+
+	private: System::Windows::Forms::TextBox^ txtNumC;
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ btnConvertir;
+	private: System::Windows::Forms::Label^ respuestaBase;
+
+
+
 
 	private:
 		/// <summary>
@@ -59,12 +70,13 @@ namespace Tarea1HansSempe1083920 {
 		void InitializeComponent(void)
 		{
 			this->txtBasoO = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->txtBaseD = (gcnew System::Windows::Forms::TextBox());
+			this->txtNumC = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnConvertir = (gcnew System::Windows::Forms::Button());
+			this->respuestaBase = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// txtBasoO
@@ -74,19 +86,19 @@ namespace Tarea1HansSempe1083920 {
 			this->txtBasoO->Size = System::Drawing::Size(100, 20);
 			this->txtBasoO->TabIndex = 0;
 			// 
-			// textBox2
+			// txtBaseD
 			// 
-			this->textBox2->Location = System::Drawing::Point(144, 44);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
-			this->textBox2->TabIndex = 1;
+			this->txtBaseD->Location = System::Drawing::Point(144, 67);
+			this->txtBaseD->Name = L"txtBaseD";
+			this->txtBaseD->Size = System::Drawing::Size(100, 20);
+			this->txtBaseD->TabIndex = 1;
 			// 
-			// textBox3
+			// txtNumC
 			// 
-			this->textBox3->Location = System::Drawing::Point(144, 70);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
-			this->textBox3->TabIndex = 2;
+			this->txtNumC->Location = System::Drawing::Point(144, 41);
+			this->txtNumC->Name = L"txtNumC";
+			this->txtNumC->Size = System::Drawing::Size(100, 20);
+			this->txtNumC->TabIndex = 2;
 			// 
 			// label1
 			// 
@@ -104,7 +116,7 @@ namespace Tarea1HansSempe1083920 {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(22, 46);
+			this->label2->Location = System::Drawing::Point(22, 69);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(76, 15);
 			this->label2->TabIndex = 4;
@@ -115,32 +127,48 @@ namespace Tarea1HansSempe1083920 {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(22, 72);
+			this->label3->Location = System::Drawing::Point(22, 43);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(116, 15);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Número a comvertir";
 			// 
-			// button1
+			// btnConvertir
 			// 
-			this->button1->Location = System::Drawing::Point(62, 107);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(137, 23);
-			this->button1->TabIndex = 6;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
+			this->btnConvertir->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnConvertir->Location = System::Drawing::Point(57, 102);
+			this->btnConvertir->Name = L"btnConvertir";
+			this->btnConvertir->Size = System::Drawing::Size(137, 23);
+			this->btnConvertir->TabIndex = 6;
+			this->btnConvertir->Text = L"Convertir";
+			this->btnConvertir->UseVisualStyleBackColor = true;
+			this->btnConvertir->Click += gcnew System::EventHandler(this, &Ejercicio4Form4::button1_Click);
+			// 
+			// respuestaBase
+			// 
+			this->respuestaBase->AutoSize = true;
+			this->respuestaBase->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->respuestaBase->ForeColor = System::Drawing::SystemColors::Highlight;
+			this->respuestaBase->Location = System::Drawing::Point(89, 145);
+			this->respuestaBase->Name = L"respuestaBase";
+			this->respuestaBase->Size = System::Drawing::Size(83, 16);
+			this->respuestaBase->TabIndex = 7;
+			this->respuestaBase->Text = L"Respuesta";
 			// 
 			// Ejercicio4Form4
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(259, 215);
-			this->Controls->Add(this->button1);
+			this->ClientSize = System::Drawing::Size(259, 181);
+			this->Controls->Add(this->respuestaBase);
+			this->Controls->Add(this->btnConvertir);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->txtNumC);
+			this->Controls->Add(this->txtBaseD);
 			this->Controls->Add(this->txtBasoO);
 			this->Name = L"Ejercicio4Form4";
 			this->Text = L"Ejercicio4Form4";
@@ -149,5 +177,144 @@ namespace Tarea1HansSempe1083920 {
 
 		}
 #pragma endregion
-	};
+
+
+
+
+		void Abase10(int x, int y) {
+
+			int xd;
+
+			if (x == 1)
+			{
+
+			}
+			else if (x == 2) 
+			{
+
+			}
+			else if (x == 3)
+			{
+
+			}
+			else if (x == 4)
+			{
+
+			}
+			else if (x == 5)
+			{
+
+			}
+			else if (x == 6)
+			{
+
+			}
+			else if (x == 7)
+			{
+
+			}
+			else if (x == 8)
+			{
+
+			}
+			else if (x == 9)
+			{
+
+			}
+		}
+
+        int ANuevaBase( int num, int x) {
+			int first;
+
+			if (x == 1)
+			{
+
+			}
+			else if (x == 2)
+			{
+				return binario(num, 2, 1);
+			}
+			else if (x == 3)
+			{
+				return Base3(num, 3, 1);
+			}
+			else if (x == 4)
+			{
+
+			}
+			else if (x == 5)
+			{
+
+			}
+			else if (x == 6)
+			{
+
+			}
+			else if (x == 7)
+			{
+
+			}
+			else if (x == 8)
+			{
+
+			}
+			else if (x == 9)
+			{
+
+			}
+	    }
+	   
+		int binario(int a, int b, int c) {
+			if (a==0) 
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 2) * c) + (binario(a / 2, 2, c * 10));
+			}
+		}	
+		int Base3(int a, int b, int c) {
+			if (a == 0)
+			{
+				return (0);
+			}
+			else
+			{
+				return ((a % 3) * c) + (Base3(a / 3, 3, c * 10));
+			}
+			return 0;
+		}
+
+		int Base4(int d) {
+			return 0;
+		}
+
+		int Base5(int d) {
+			return 0;
+		}
+
+		int Base6(int d) {
+			return 0;
+		}
+
+		int Base7(int d) {
+			return 0;
+		}
+
+		int Base8(int d) {
+			return 0;
+		}
+
+		int Base9(int d) {
+			return 0;
+		}
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		respuestaBase->Text = "" + ANuevaBase(Convert::ToInt32(txtNumC->Text), Convert::ToInt32(txtBaseD->Text));
+
+	}
+
+};
 }
